@@ -1,11 +1,11 @@
 //your parameter variables go here!
-let rect_width  = 30; //normal = 20
-let rect_height = 25; //normal = 20
-let bg_width = 30; //normal = 50
-let bg_height = 90; //normal = 50
-let sqrColour = (0,0,80); //normal = (0,0,255)
+let rect_width  = 20; //normal = 20
+let rect_height = 20; //normal = 20
+let bg_width = 50; //normal = 50
+let bg_height = 50; //normal = 50
+let sqrColour = (0,0,255); //normal = (0,0,255)
 let coreLineRotation = 60; //normal = 60
-let outLineGrey = 5; //normal = 1
+let outLineGrey = 1; //normal = 1
 let DoNotChange =120; //normal = 120
 //
 var x = 20;  // Warning: A lot of math...
