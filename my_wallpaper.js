@@ -11,11 +11,11 @@ let DoNotChange =120; //normal = 120
 var x = 20;  // Warning: A lot of math...
 var y = 10; // (This took way to long.)
 var z = 50; 
-
+//line 61 changed colour to blue
 
 function setup_wallpaper(pWallpaper) {
-  //pWallpaper.output_mode(DEVELOP_GLYPH);
-   pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.output_mode(DEVELOP_GLYPH);
+   //pWallpaper.output_mode(GRID_WALLPAPER);
   
   pWallpaper.resolution(FIT_TO_SCREEN);
   pWallpaper.show_guide(true); //set this to false when you're ready to print
@@ -31,6 +31,10 @@ function wallpaper_background() {
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+  let sqrColour = color(0,0,255); //normal = (0,0,255)
+  let myWhite = color(255,255,255);
+  let myRed = color(255,0,0);
+  
   fill(100,0,0);//red
   rect(0,0, bg_width,bg_height);
   rect(z,z ,bg_width,bg_height);
@@ -88,11 +92,6 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   rect(0,y*16, rect_width,rect_height);
   rect(x*2,y*10, rect_width,rect_height);
   rect(x*2,60, rect_width,rect_height)
-
-  //
-  fill(50);
-  strokeWeight(2);
-  circle(x*5,y*10,90);
 
   //
   strokeWeight(outLineGrey);
@@ -187,39 +186,53 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   quad(x*7,y*6, x*6,y*8, x*6,y*10, x*7,y*8);
   line(x*7,y*7, x*6,y*9);
 
+  //
+  //Stark();
+  //Captain();
+  Hulk();
+  //Widow();
+}
+
+function Stark(){
+  push();
+  translate(100, 100);//translate to centre 
+  rotate(0);
+  //outer circle
+  fill(100,0,0);
+  strokeWeight(1.5);
+  circle(0,0,90);
+    // InnerCore
   strokeWeight(2);
   fill(12, 204, 204);
-  circle(x*5,y*10,80);
+  circle(0,0,80);
   strokeWeight(5);
   //
   push();
-  translate(x*5, y*10);
   rotate(coreLineRotation);
-  line(x*-2+2, 0, x*2-2, 0);
+  line(-38, 0, 38, 0);
   rotate(coreLineRotation);
-  line(x*-2+2, 0, x*2-2, 0);
+  line(-38, 0, 38, 0);
   rotate(coreLineRotation);
-  line(x*-2+2, 0, x*2-2, 0);
+  line(-38, 0, 38, 0);
   pop();
   //
-  strokeWeight(2);
+  strokeWeight(2); //Bigtriangle
   fill(117, 255, 255)
-  triangle(x*3+6,81, x*5,y*13+9, x*6+14,y*8+1);//bottom
+  triangle(-34,-19, 0,39, 34,-19);//bottom
   strokeWeight(1);
-  line(x*5,y*10, x*5,y*14-1); //yb
-  line(x*5,y*10, x*3+6,y*8+1); //yl
-  line(x*5,y*10, x*6+14,y*8+1); //yr
+  line(0,0, 0,39); //yb
+  line(0,0, -34,-19); //yl
+  line(0,0, 34,-19); //yr
   //
-  strokeWeight(4);
+  strokeWeight(4); // Innertriangle
   fill(242, 255, 255);
-  triangle(x*4+5,y*9+1.5, x*5,y*11+5, x*5+15,y*9+1.5);//top
+  triangle(-15,-8.5, 0,16, 15,-8.5);//top
   //
   //
   //Peasle do not mess with the rotation 
   //(if the rotation is changed please return it to = 120)
   strokeWeight(0);
   push();
-  translate(x*5, y*10);
   rotate(DoNotChange);
   quad(0,4, -3,9, 0,14, 3,9);
   rotate(DoNotChange);
@@ -227,5 +240,79 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
   rotate(DoNotChange);
   quad(0,4, -3,9, 0,14, 3,9);
   pop();
+
+  pop();
+}
+
+function Captain(){
+  push();
+  translate(100, 100);//translate to centre 
+  rotate(0);
+  //redOuterCircle
+  fill(200,0,0);
+  strokeWeight(1.5);
+  circle(0,0,90);
+    //whiteOuterCircle
+  strokeWeight(0);
+  fill(255);
+  circle(0,0,75);
+    //redInnerCircle
+  strokeWeight(0);
+  fill(200,0,0);
+  circle(0,0,60);
+    //blueInnerCircle
+  stroke (255);
+  strokeWeight(1);
+  fill(0,0,200);
+  circle(0,0,45);
+  //star
+  strokeWeight(0.5);
+  stroke(225)
+  fill(235);
+  push();
+  rotate(0) //top
+  quad(0,0, -6,-8, 0,-21, 6,-8);
+  quad(0,0, -4,-6, 0,-17, 4,-6);
+  rotate(72) //right
+  quad(0,0, -6,-8, 0,-21, 6,-8);
+  quad(0,0, -4,-6, 0,-17, 4,-6);
+  rotate(72) //bottomright
+  quad(0,0, -6,-8, 0,-21, 6,-8);
+  quad(0,0, -4,-6, 0,-17, 4,-6);
+  rotate(72) //bottomleft
+  quad(0,0, -6,-8, 0,-21, 6,-8);
+  quad(0,0, -4,-6, 0,-17, 4,-6);
+  rotate(72) //left
+  quad(0,0, -6,-8, 0,-21, 6,-8);
+  quad(0,0, -4,-6, 0,-17, 4,-6);
+  pop();
   //
+
+  pop();
+}
+
+function Hulk(){
+  push();
+  translate(100, 100);//translate to centre 
+  rotate(0);
+  //OuterCircle
+  fill(0,100,0);
+  strokeWeight(1.5);
+  circle(0,0,90);
+    //InnerCircle
+  strokeWeight(1);
+  fill(100,0,100);
+  circle(0,0,80);
+  //Hand
+  fill(0,100,0)
+  quad(-28,-28, -28,28, -14,14, -14,-14)
+  strokeWeight(0.5);
+  quad(1,-13.5, 1,-26, 26,-25, 28,-13.5)
+  quad(0,0, 1,-13, 28,-13, 29,0)
+  quad(0,0.5, 1,13.5, 28,13.5, 29,0.5)
+  quad(1,14, 1,18 ,26,18 ,26,14)
+  //
+  quad(-6,-8.5, 7,-8.5, 7,-28.5, -6,-26.5)
+
+  pop();
 }
